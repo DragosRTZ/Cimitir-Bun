@@ -679,6 +679,20 @@ html{scroll-padding-top:92px}
 /* hero: cele două clipuri alternează */
 .hero .hero-video{opacity:0;transition:opacity 1.4s ease}
 .hero .hero-video.is-on{opacity:.9}
+
+/* schițele grupate sub un buton */
+.plots-toggle{border:0;margin-top:8px}
+.plots-toggle>summary{list-style:none;display:inline-flex;align-items:center;gap:12px;cursor:pointer;padding:14px 24px;border:1px solid var(--line-strong);border-radius:999px;background:rgba(227,192,113,.06);color:var(--gold);font-family:var(--f-body);font-size:.95rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:background .25s,border-color .25s}
+.plots-toggle>summary::-webkit-details-marker{display:none}
+.plots-toggle>summary::after{content:"";width:8px;height:8px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .25s;margin-left:4px}
+.plots-toggle[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
+.plots-toggle>summary:hover{background:rgba(227,192,113,.14);border-color:var(--gold)}
+.plots-toggle .pt-close{display:none}
+.plots-toggle[open] .pt-open{display:none}
+.plots-toggle[open] .pt-close{display:inline}
+.plots-toggle .pt-count{font-weight:400;font-size:.78rem;letter-spacing:.08em;color:var(--muted);text-transform:none}
+.plots-toggle[open]>.plots{margin-top:clamp(20px,3vw,32px)}
+@media (max-width:600px){.plots-toggle>summary{width:100%;justify-content:center;padding:14px 16px;font-size:.85rem}.plots-toggle .pt-count{display:none}}
 </style>
 </head>
 <body>
@@ -944,6 +958,8 @@ html{scroll-padding-top:92px}
       <div class="sub-block" id="schite">
         <h3 class="sub-title">Schițele locurilor de veci</h3>
         <p class="sub-lede">Planul fiecărei categorii, cu numerotarea exactă a criptelor pe figuri. Atingeți o schiță pentru a o vedea mărită.</p>
+      <details class="plots-toggle" id="schite-toggle">
+        <summary><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M9 4v13.5M15 6.5V20"/></svg><span class="pt-open">Vezi schițele locurilor de veci</span><span class="pt-close">Ascunde schițele</span><span class="pt-count">4 categorii</span></summary>
       <div class="plots">
       <figure class="plot-card" id="plot-premium">
         <div class="plot-head">
@@ -990,6 +1006,7 @@ html{scroll-padding-top:92px}
         <p class="plot-foot">Figurile 1–4 sunt cele mai apropiate de intrarea principală și de capelă.</p>
       </figure>
       </div>
+      </details>
       </div>
     </div>
   </section>
@@ -1842,6 +1859,23 @@ html{scroll-padding-top:92px}
   }
   a.addEventListener('ended',function(){swap(a,b);});
   b.addEventListener('ended',function(){swap(b,a);});
+})();
+</script>
+<script>
+(function(){
+  var box=document.getElementById('schite-toggle'); if(!box) return;
+  function openFor(hash){
+    if(!hash) return false;
+    var t=document.getElementById(hash.slice(1));
+    if(t && (t===box.parentNode || box.contains(t))){ box.open=true; return t; }
+    return false;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href^="#"]'); if(!a) return;
+    var t=openFor(a.getAttribute('href'));
+    if(t && t!==box.parentNode){ e.preventDefault(); history.replaceState(null,'',a.getAttribute('href')); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+  var t=openFor(location.hash); if(t && t!==box.parentNode) setTimeout(function(){t.scrollIntoView();},50);
 })();
 </script>
 </body>
