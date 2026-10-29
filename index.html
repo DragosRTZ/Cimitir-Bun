@@ -693,6 +693,10 @@ html{scroll-padding-top:92px}
 .plots-toggle .pt-count{font-weight:400;font-size:.78rem;letter-spacing:.08em;color:var(--muted);text-transform:none}
 .plots-toggle[open]>.plots{margin-top:clamp(20px,3vw,32px)}
 @media (max-width:600px){.plots-toggle>summary{width:100%;justify-content:center;padding:14px 16px;font-size:.85rem}.plots-toggle .pt-count{display:none}}
+
+/* fără „Avantaje”: programul ocupă singur rândul */
+.acasa-grid{grid-template-columns:1fr}
+.acasa-grid .program-card{max-width:900px}
 </style>
 </head>
 <body>
@@ -752,21 +756,6 @@ html{scroll-padding-top:92px}
     <div class="wrap">
       <div class="acasa-grid">
 
-        <div class="why">
-          <div class="s-head">
-            <p class="eyebrow">Avantaje</p>
-            <h2>De ce să alegeți cimitirul Eternitatea?</h2>
-          </div>
-          <ul class="why-grid">
-            <li class="why-card reveal"><svg class="chk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Servicii funerare complete</span></li>
-            <li class="why-card reveal"><svg class="chk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Disponibilitate non-stop</span></li>
-            <li class="why-card reveal"><svg class="chk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Prețuri avantajoase</span></li>
-            <li class="why-card reveal"><svg class="chk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Capelă</span></li>
-            <li class="why-card reveal"><svg class="chk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Cimitir autorizat DSP</span></li>
-            <li class="why-card reveal"><svg class="chk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Consultanță specifică</span></li>
-          </ul>
-        </div>
-
         <div class="program" id="program">
           <div class="s-head">
             <p class="eyebrow">Orar</p>
@@ -818,16 +807,6 @@ html{scroll-padding-top:92px}
         </ul>
         </div>
       </article>
-
-      <div class="sub-block why-us">
-        <h3 class="sub-title">De ce noi ?</h3>
-        <p class="sub-lede">Suntem un sprijin real în momentele grele, atenți la nevoile dumneavoastră și focusați pe stările și sentimentele pe care le experimentați.</p>
-        <div class="cards3">
-          <article class="card3 reveal"><h4>Consultanță gratuită</h4><p>Oferim consultanță gratuită non-stop familiilor care trec prin momente grele.</p></article>
-          <article class="card3 reveal"><h4>Personal calificat și echipamente moderne</h4><p>Devotat prestării unor servicii de calitate, fiind ajutat de logistica excelentă din dotare.</p></article>
-          <article class="card3 reveal"><h4>Pachete funerare flexibile</h4><p>Pachetele funerare pot fi personalizate în funcție de nevoile fiecărui client în parte.</p></article>
-        </div>
-      </div>
 
       <div class="sub-block plan-link">
         <h3 class="sub-title">Planul cimitirului uman Eternitatea</h3>
