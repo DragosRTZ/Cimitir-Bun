@@ -516,6 +516,20 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
 .company-card .row:last-child{border-bottom:0}
 .company-card .row dd{text-align:right}
 @media (max-width:600px){.company-card .row{flex-direction:column;gap:2px}.company-card .row dd{text-align:left}}
+
+/* buton WhatsApp fix */
+.wa-float{position:fixed;z-index:60;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));
+  display:inline-flex;align-items:center;gap:10px;height:58px;min-width:58px;justify-content:center;padding:0 18px 0 16px;
+  border-radius:999px;background:#25D366;color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.02em;
+  box-shadow:0 10px 30px -8px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.18),0 0 0 4px rgba(227,192,113,.35);
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s}
+.wa-float:hover{transform:translateY(-3px) scale(1.03);filter:brightness(1.06);box-shadow:0 16px 36px -8px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.25),0 0 0 5px rgba(227,192,113,.55)}
+.wa-float:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.wa-float svg{flex:none;display:block}
+@media (max-width:600px){.wa-float{padding:0;width:58px}.wa-label{display:none}}
+@media (prefers-reduced-motion:no-preference){.wa-float::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid #25D366;animation:wa-pulse 2.8s ease-out infinite;pointer-events:none}
+  @keyframes wa-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.45);opacity:0}}}
+@media print{.wa-float{display:none}}
 </style>
 </head>
 <body>
@@ -831,8 +845,14 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
             <span class="when">Non-stop, inclusiv în afara programului</span>
           </a>
 
-          <a class="ccard" href="mailto:dragos.ghitulescu@gmail.com">
+          <a class="ccard" href="mailto:office@grandcemetery.ro">
             <span class="role">E-mail</span>
+            <span class="num mail">office@grandcemetery.ro</span>
+            <span class="when">Răspundem în aceeași zi lucrătoare</span>
+          </a>
+
+          <a class="ccard" href="mailto:dragos.ghitulescu@gmail.com">
+            <span class="role">E-mail alternativ</span>
             <span class="num mail">dragos.ghitulescu@gmail.com</span>
             <span class="when">Răspundem în aceeași zi lucrătoare</span>
           </a>
@@ -883,7 +903,7 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
         <div class="actions">
           <button type="submit" class="btn-primary">Pregătește cererea</button>
           <button type="button" class="btn-ghost" id="btn-copy" hidden>Copiază textul</button>
-          <span class="hint" id="hint">Cererea se trimite la dragos.ghitulescu@gmail.com.</span>
+          <span class="hint" id="hint">Cererea se trimite la office@grandcemetery.ro, cu copie la dragos.ghitulescu@gmail.com.</span>
         </div>
 
         <div class="out" id="out" hidden>
@@ -1002,6 +1022,7 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
           <ul>
             <li><a href="tel:+40744775405">0744 775 405 — birou</a></li>
             <li><a href="tel:+40743335220">0743 335 220 — urgențe</a></li>
+            <li><a href="mailto:office@grandcemetery.ro">office@grandcemetery.ro</a></li>
             <li><a href="mailto:dragos.ghitulescu@gmail.com">dragos.ghitulescu@gmail.com</a></li>
           </ul>
         </div>
@@ -1041,6 +1062,13 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
       </div>
     </div>
   </footer>
+
+<a class="wa-float" id="wa-float" href="https://wa.me/40743335220?text=Bun%C4%83%20ziua!%20V%C4%83%20scriu%20de%20pe%20site-ul%20Cimitirului%20Eternitatea." target="_blank" rel="noopener" aria-label="Scrie-ne pe WhatsApp la 0743 335 220">
+  <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.48 14.99L2 22l5.17-1.52A9.96 9.96 0 1 0 12.04 2zm0 1.8a8.16 8.16 0 1 1-4.18 15.17l-.3-.18-3.07.9.92-2.99-.2-.31A8.16 8.16 0 0 1 12.04 3.8zm-3.2 3.9c-.2 0-.5.07-.77.36-.27.3-1.02 1-1.02 2.43 0 1.43 1.04 2.82 1.19 3.01.15.2 2.04 3.25 5.03 4.43 2.48.98 2.99.78 3.53.73.54-.05 1.74-.71 1.98-1.4.25-.69.25-1.28.17-1.4-.07-.12-.27-.2-.57-.35-.3-.15-1.74-.86-2.01-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57z"/>
+  </svg>
+  <span class="wa-label">WhatsApp</span>
+</a>
 
 </main>
 
@@ -1091,8 +1119,8 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
     out.hidden = false;
     btnCopy.hidden = false;
     hint.textContent = 'Verificați textul, apoi trimiteți-l pe e-mail sau sunați-ne.';
-    outMail.href = 'mailto:dragos.ghitulescu@gmail.com'
-      + '?subject=' + encodeURIComponent('Căutare loc de veci — ' + (nume || pren))
+    outMail.href = 'mailto:office@grandcemetery.ro'
+      + '?cc=dragos.ghitulescu@gmail.com&subject=' + encodeURIComponent('Căutare loc de veci — ' + (nume || pren))
       + '&body=' + encodeURIComponent(text);
     out.scrollIntoView({ block: 'nearest' });
   });
@@ -1141,7 +1169,7 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
   "foundingDate": "2020-10-12",
   "url": "https://www.grand-cemetery-popesti.ro/",
   "telephone": "+40744775405",
-  "email": "dragos.ghitulescu@gmail.com",
+  "email": ["office@grandcemetery.ro", "dragos.ghitulescu@gmail.com"],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Strada Eternității nr. 5",
