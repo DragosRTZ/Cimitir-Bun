@@ -510,6 +510,12 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
 .g-video video{display:block;width:100%;height:100%;object-fit:cover}
 @media (max-width:760px){.g-video{aspect-ratio:16/10}}
 @media (prefers-reduced-motion:reduce){.g-video video{display:none}.g-video{background:url(img/alee.jpg) center/cover}}
+
+.company-card{max-width:760px;background:linear-gradient(160deg,#131315,#0B0B0C);border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:4px;padding:clamp(20px,3vw,32px);box-shadow:0 24px 60px -34px #000}
+.company-card .row{padding-block:11px;border-bottom:1px solid var(--line)}
+.company-card .row:last-child{border-bottom:0}
+.company-card .row dd{text-align:right}
+@media (max-width:600px){.company-card .row{flex-direction:column;gap:2px}.company-card .row dd{text-align:left}}
 </style>
 </head>
 <body>
@@ -949,6 +955,26 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
     </div>
   </section>
 
+  <section id="companie" class="company">
+    <div class="wrap">
+      <div class="s-head">
+        <p class="eyebrow">Operatorul cimitirului</p>
+        <h2>Date despre companie</h2>
+      </div>
+      <div class="company-card">
+        <dl class="rows">
+          <div class="row"><dt>Denumire legală</dt><dd>GRAND CEMETERY SRL</dd></div>
+          <div class="row"><dt>CUI (cod fiscal)</dt><dd>43171098</dd></div>
+          <div class="row"><dt>Nr. Registrul Comerțului</dt><dd>J23/5677/2020</dd></div>
+          <div class="row"><dt>Data înființării</dt><dd>12 octombrie 2020</dd></div>
+          <div class="row"><dt>Activitate principală (CAEN)</dt><dd>9603 — Activități funerare și conexe</dd></div>
+          <div class="row"><dt>Sediul social</dt><dd>Str. Eternitatea nr. 5, Popești-Leordeni, jud. Ilfov, 077160, România</dd></div>
+          <div class="row"><dt>E-mail</dt><dd><a href="mailto:office@grandcemetery.ro">office@grandcemetery.ro</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
   <div class="authz">
     <div class="wrap authz-inner">
       <svg class="seal" viewBox="0 0 64 64" role="img" aria-label="Însemn de autorizare">
@@ -989,6 +1015,7 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
             <li><a href="#cautare">Căutare în registru</a></li>
             <li><a href="#regulament">Regulament</a></li>
             <li><a href="#contact">Adresă și contact</a></li>
+            <li><a href="#companie">Date companie</a></li>
           </ul>
         </div>
         <div>
@@ -1009,7 +1036,7 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
         </a>
       </div>
       <div class="colophon">
-        <span>© <span id="an"></span> Cimitirul Uman Eternitatea, Popești-Leordeni</span>
+        <span>© <span id="an"></span> GRAND CEMETERY SRL · CUI 43171098 · J23/5677/2020</span>
         <span>grand-cemetery-popesti.ro</span>
       </div>
     </div>
@@ -1109,6 +1136,9 @@ dialog.lightbox::backdrop{background:rgba(0,0,0,.94)}
   "@type": "Cemetery",
   "name": "Cimitirul Uman Eternitatea",
   "alternateName": "Grand Cemetery",
+  "legalName": "GRAND CEMETERY SRL",
+  "taxID": "43171098",
+  "foundingDate": "2020-10-12",
   "url": "https://www.grand-cemetery-popesti.ro/",
   "telephone": "+40744775405",
   "email": "dragos.ghitulescu@gmail.com",
